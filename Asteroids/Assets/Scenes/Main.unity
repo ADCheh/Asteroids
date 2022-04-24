@@ -835,7 +835,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1820331064}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -3.53, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -904,6 +904,7 @@ MonoBehaviour:
   speed: 25
   drag: 1.5
   rotationSpeed: 100
+  bulletPrefab: {fileID: 2918963954728640645, guid: c5ac74903d091424f987f589104d1d2d, type: 3}
 --- !u!4 &1966784041 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6492433472114493929, guid: 3bffb22720981a14f9cb95f43a3e36d7, type: 3}

@@ -22,8 +22,12 @@ namespace Enemies.Enemy
 
         private void OnTriggerEnter2D(Collider2D col)
         {
-            if(col.CompareTag("Player"))
+            if (col.CompareTag("Bullet"))
+            {
+                Destroy(col.gameObject);
                 Destroy(gameObject);
+            }
+                
         }
     }
 }
