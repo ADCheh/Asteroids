@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using Enemies.Infrastructure;
+using UnityEngine;
 
-namespace Enemies
+namespace Enemies.Movement
 {
     public class AsteroidMovement : IEnemyMovement
     {
@@ -9,19 +10,19 @@ namespace Enemies
         public float MoveSpeed { get; set; }
 
         private Vector3 _playerPosition;
-
+        
         public AsteroidMovement(Transform playerTransform, Transform transform, float movementSpeed)
         {
             SelfTransform = transform;
             PlayerTransform = playerTransform;
             MoveSpeed = movementSpeed;
-            _playerPosition = PlayerTransform.position;
+            //_playerPosition = PlayerTransform.position;
         }
 
         public void Move()
         {
-            float forceX = _playerPosition.x - SelfTransform.position.x;
-            float forceY = _playerPosition.y - SelfTransform.position.y;
+            float forceX = PlayerTransform.position.x - SelfTransform.position.x;
+            float forceY = PlayerTransform.position.y - SelfTransform.position.y;
             
             SelfTransform.GetComponent<Rigidbody2D>().AddForce(new Vector2(forceX,forceY).normalized * MoveSpeed,ForceMode2D.Impulse);
         }

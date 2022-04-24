@@ -1,14 +1,15 @@
-﻿using UnityEngine;
+﻿using Enemies.Infrastructure;
+using UnityEngine;
 
-namespace Enemies
+namespace Enemies.Movement
 {
-    public class UFOMovement : IEnemyMovement
+    public class UfoMovement : IEnemyMovement
     {
         public Transform SelfTransform { get; set; }
         public Transform PlayerTransform { get; set; }
         public float MoveSpeed { get; set; }
         
-        public UFOMovement(Transform playerTransform,Transform transform,float movementSpeed)
+        public UfoMovement(Transform playerTransform,Transform transform,float movementSpeed)
         {
             SelfTransform = transform;
             PlayerTransform = playerTransform;

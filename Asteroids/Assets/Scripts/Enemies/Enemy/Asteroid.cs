@@ -1,15 +1,14 @@
-﻿using System;
+﻿using Enemies.Infrastructure;
+using Enemies.Movement;
 using UnityEngine;
 
-namespace Enemies
+namespace Enemies.Enemy
 {
     public class Asteroid : MonoBehaviour, IEnemy
     {
         public float MoveSpeed;
         public Transform Player { get; set;  }
-        public IEnemyMovement MovementLogic { get; private set; }
-
-        public float SpawnDelay;
+        public IEnemyMovement MovementLogic { get; set; }
 
         private void Start()
         {

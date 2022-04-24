@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections;
+using Enemies;
+using Enemies.Infrastructure;
 using UnityEngine;
 
 namespace Game
@@ -16,26 +18,9 @@ namespace Game
 
         private void Start()
         {
-            StartCoroutine(SpawnAsteroids());
-            StartCoroutine(SpawnUfo());
+            StartCoroutine(_enemyFactory.SpawnEnemy(EnemyType.Asteroid));
+            StartCoroutine(_enemyFactory.SpawnEnemy(EnemyType.Ufo));
         }
-
-        private IEnumerator SpawnAsteroids()
-        {
-            while (true)
-            {
-                yield return new WaitForSeconds(3);
-                _enemyFactory.CreateAsteroid();
-            }
-        }
-
-        private IEnumerator SpawnUfo()
-        {
-            while (true)
-            {
-                yield return new WaitForSeconds(5);
-                _enemyFactory.CreateUfo();
-            }
-        }
+        
     }
 }

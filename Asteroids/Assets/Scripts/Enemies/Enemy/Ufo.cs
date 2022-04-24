@@ -1,18 +1,18 @@
-﻿using System;
+﻿using Enemies.Infrastructure;
+using Enemies.Movement;
 using UnityEngine;
 
-namespace Enemies
+namespace Enemies.Enemy
 {
-    public class UFO : MonoBehaviour, IEnemy
+    public class Ufo : MonoBehaviour, IEnemy
     {
         public float MoveSpeed;
-        public float SpawnDelay;
         public Transform Player { get; set; }
-        public IEnemyMovement MovementLogic { get; private set; }
+        public IEnemyMovement MovementLogic { get; set; }
 
         private void Start()
         {
-            MovementLogic = new UFOMovement(Player,transform, MoveSpeed);
+            MovementLogic = new UfoMovement(Player,transform, MoveSpeed);
         }
 
         private void Update()

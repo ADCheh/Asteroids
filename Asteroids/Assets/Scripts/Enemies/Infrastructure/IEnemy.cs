@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 
-namespace Enemies
+namespace Enemies.Infrastructure
 {
     public interface IEnemy
     {
         Transform Player { get; set; }
-        IEnemyMovement MovementLogic { get; }
+        IEnemyMovement MovementLogic { get; set; }
     }
 }
