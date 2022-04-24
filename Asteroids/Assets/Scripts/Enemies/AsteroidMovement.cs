@@ -2,21 +2,28 @@
 
 namespace Enemies
 {
-    public class AsteroidMovement
+    public class AsteroidMovement : IEnemyMovement
     {
-        private Transform _transform;
-        private Transform _playerTransform;
-        private readonly float _asteroidSpeed;
+        public Transform SelfTransform { get; set; }
+        public Transform PlayerTransform { get; set; }
+        public float MoveSpeed { get; set; }
+
+        private Vector3 _playerPosition;
+
         public AsteroidMovement(Transform playerTransform, Transform transform, float movementSpeed)
         {
-            _playerTransform = playerTransform;
-            _transform = transform;
-            _asteroidSpeed = movementSpeed;
+            SelfTransform = transform;
+            PlayerTransform = playerTransform;
+            MoveSpeed = movementSpeed;
+            _playerPosition = PlayerTransform.position;
         }
 
         public void Move()
         {
-            _transform.GetComponent<Rigidbody2D>().AddForce(new Vector2(_playerTransform.position.x,_playerTransform.position.y) * _asteroidSpeed,ForceMode2D.Impulse);
+            float forceX = _playerPosition.x - SelfTransform.position.x;
+            float forceY = _playerPosition.y - SelfTransform.position.y;
+            
+            SelfTransform.GetComponent<Rigidbody2D>().AddForce(new Vector2(forceX,forceY).normalized * MoveSpeed,ForceMode2D.Impulse);
         }
     }
 }

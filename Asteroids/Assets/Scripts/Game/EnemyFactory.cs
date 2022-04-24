@@ -30,20 +30,32 @@ namespace Game
 
         public void CreateAsteroid()
         {
-            var asteroid = Object.Instantiate(LoadEnemyPrefab(AsteroidPrefabPath), _spawnerList[rnd.Next(_spawnerList.Count)].transform.position, Quaternion.identity);
-            asteroid.GetComponent<Asteroid>().Player = _playerTransform;
+            var asteroid = InstantiateEnemy(AsteroidPrefabPath);
+            GivePlayerReference(asteroid);
         }
 
         public void CreateUfo()
         {
-            var UFO = Object.Instantiate(LoadEnemyPrefab(UfoPrefabPath), _spawnerList[rnd.Next(_spawnerList.Count)].transform.position, Quaternion.identity);
-            UFO.GetComponent<UFO>().Player = _playerTransform;
+            var UFO = InstantiateEnemy(UfoPrefabPath);
+            GivePlayerReference(UFO);
+        }
+
+        private GameObject InstantiateEnemy(string path)
+        {
+            return Object.Instantiate(
+                LoadEnemyPrefab(path),_spawnerList[rnd.Next(_spawnerList.Count)].transform.position,
+                Quaternion.identity);
         }
 
         private GameObject LoadEnemyPrefab(string path)
         {
             var prefab = Resources.Load<GameObject>(path);
             return prefab;
+        }
+
+        private void GivePlayerReference(GameObject enemy)
+        {
+            enemy.GetComponent<IEnemy>().Player = _playerTransform;
         }
     }
 }

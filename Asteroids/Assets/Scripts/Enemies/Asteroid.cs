@@ -3,17 +3,18 @@ using UnityEngine;
 
 namespace Enemies
 {
-    public class Asteroid : MonoBehaviour
+    public class Asteroid : MonoBehaviour, IEnemy
     {
-        public Transform Player;
-        
+        public float MoveSpeed;
+        public Transform Player { get; set;  }
+        public IEnemyMovement MovementLogic { get; private set; }
+
         public float SpawnDelay;
-        
-        private AsteroidMovement _asteroidMovement;
+
         private void Start()
         {
-            _asteroidMovement = new AsteroidMovement(Player, transform,0.5f);
-            _asteroidMovement.Move();
+            MovementLogic = new AsteroidMovement(Player, transform,MoveSpeed);
+            MovementLogic.Move();
         }
 
         private void OnTriggerEnter2D(Collider2D col)

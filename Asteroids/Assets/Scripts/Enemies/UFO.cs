@@ -3,22 +3,21 @@ using UnityEngine;
 
 namespace Enemies
 {
-    public class UFO : MonoBehaviour
+    public class UFO : MonoBehaviour, IEnemy
     {
+        public float MoveSpeed;
         public float SpawnDelay;
-        
-        public Transform Player;
-        
-        private UFOMovement _ufoMovement;
+        public Transform Player { get; set; }
+        public IEnemyMovement MovementLogic { get; private set; }
 
         private void Start()
         {
-            _ufoMovement = new UFOMovement(Player,transform, 0.1f);
+            MovementLogic = new UFOMovement(Player,transform, MoveSpeed);
         }
 
         private void Update()
         {
-            _ufoMovement.Move();
+            MovementLogic.Move();
         }
 
         private void OnTriggerEnter2D(Collider2D col)
