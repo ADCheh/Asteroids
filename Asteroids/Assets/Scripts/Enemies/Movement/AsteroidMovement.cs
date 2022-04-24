@@ -16,15 +16,14 @@ namespace Enemies.Movement
             SelfTransform = transform;
             PlayerTransform = playerTransform;
             MoveSpeed = movementSpeed;
-            //_playerPosition = PlayerTransform.position;
         }
 
         public void Move()
         {
             float forceX = PlayerTransform.position.x - SelfTransform.position.x;
             float forceY = PlayerTransform.position.y - SelfTransform.position.y;
-            
-            SelfTransform.GetComponent<Rigidbody2D>().AddForce(new Vector2(forceX,forceY).normalized * MoveSpeed,ForceMode2D.Impulse);
+            SelfTransform.GetComponent<Rigidbody2D>().
+                AddForce(new Vector2(forceX,forceY).normalized * MoveSpeed,ForceMode2D.Impulse);
         }
     }
 }

@@ -21,6 +21,5 @@ namespace Game
             StartCoroutine(_enemyFactory.SpawnEnemy(EnemyType.Asteroid));
             StartCoroutine(_enemyFactory.SpawnEnemy(EnemyType.Ufo));
         }
-        
     }
 }
