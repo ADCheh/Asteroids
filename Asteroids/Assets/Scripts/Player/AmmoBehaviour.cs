@@ -1,5 +1,4 @@
-﻿using System;
-using Enemies.Infrastructure;
+﻿using Enemies.Infrastructure;
 using UnityEngine;
 
 namespace Player

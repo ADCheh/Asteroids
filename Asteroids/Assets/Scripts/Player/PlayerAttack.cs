@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using Unity.Mathematics;
-using UnityEngine;
-using Object = System.Object;
+﻿using UnityEngine;
 
 namespace Player
 {
