@@ -1999,7 +1999,9 @@ MonoBehaviour:
   laserPrefab: {fileID: 2756981920417226540, guid: 7dd9bbacab9bf1f4f820897fd1c14c3e, type: 3}
   bulletSpeed: 10
   laserSpeed: 15
-  laserShotDelay: 3
+  laserShotsMaxCount: 3
+  laserShotsChargeTime: 5
+  currentShots: 0
 --- !u!1 &1943186593
 GameObject:
   m_ObjectHideFlags: 0

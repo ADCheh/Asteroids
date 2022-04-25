@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 namespace Player
 {
@@ -7,10 +8,20 @@ namespace Player
         private Transform _playerTransform;
 
         private float _lastDelayedShot;
+        
+        private float _laserShotMaxCount;
 
-        public PlayerAttack(Transform transform, GameObject bulletPrefab)
+        private float _currentShotsCount;
+
+        private float _chargeDuration;
+
+        public PlayerAttack(Transform transform, float laserShotMaxCount, float chargeDuration)
         {
             _playerTransform = transform;
+
+            _laserShotMaxCount = laserShotMaxCount;
+
+            _chargeDuration = chargeDuration;
         }
 
         public void ShootSomething(GameObject ammoPrefab, float ammoSpeed)
@@ -35,6 +46,11 @@ namespace Player
                 return true;
 
             return false;
+        }
+
+        public IEnumerator ReloadLaser()
+        {
+            yield return new WaitForSeconds(_chargeDuration);
         }
     }
 }
