@@ -12,6 +12,7 @@ namespace Player
         public GameObject laserPrefab;
         public float bulletSpeed;
         public float laserSpeed;
+        public float laserShotDelay;
 
         private Rigidbody2D _rigidbody;
         private PlayerMovement _movement;
@@ -35,7 +36,7 @@ namespace Player
 
             if (Input.GetMouseButtonDown(1))
             {
-                _attack.ShootSomething(laserPrefab,laserSpeed);
+                _attack.ShootSomethingWithDelay(laserPrefab,laserSpeed,laserShotDelay);
             }
         }
     }
