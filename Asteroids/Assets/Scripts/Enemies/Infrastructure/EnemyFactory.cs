@@ -12,7 +12,7 @@ namespace Enemies.Infrastructure
         private List<GameObject> _spawnerList = new List<GameObject>();
         private Dictionary<EnemyType, GameObject> _enemyPrefabs = new Dictionary<EnemyType, GameObject>();
 
-        private const string PrefabFolderPath =  "Prefabs/";
+        private const string PrefabFolderPath =  "Prefabs/Enemies/";
 
         private Transform _playerTransform;
         private System.Random rnd = new System.Random();
@@ -59,8 +59,13 @@ namespace Enemies.Infrastructure
 
         private GameObject InstantiateEnemy(EnemyType enemyType)
         {
+            //
+            var spawnerLocation = _spawnerList[rnd.Next(_spawnerList.Count)].transform.position;
+            var vectorTest = new Vector3(spawnerLocation.x, spawnerLocation.y,
+                spawnerLocation.z);
+            //
             return Object.Instantiate(
-                _enemyPrefabs[enemyType],_spawnerList[rnd.Next(_spawnerList.Count)].transform.position,
+                _enemyPrefabs[enemyType],vectorTest,
                 Quaternion.identity);
         }
 

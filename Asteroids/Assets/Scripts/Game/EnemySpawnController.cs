@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using Enemies;
+﻿using Enemies;
 using Enemies.Infrastructure;
 using UnityEngine;
 

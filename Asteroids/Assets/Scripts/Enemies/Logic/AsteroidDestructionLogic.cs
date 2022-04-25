@@ -3,7 +3,7 @@ using Random = System.Random;
 
 namespace Enemies.Logic
 {
-    public class AsteroidDestructionLogic
+    public class AsteroidDestructionLogic : IDestructionLogic
     {
         private Transform _parentTransform;
         private GameObject _asteroidPiecePrefab;
@@ -16,7 +16,7 @@ namespace Enemies.Logic
             _asteroidPiecePrefab = asteroidPiecePrefab;
         }
 
-        public void InstantiatePieces()
+        public void HandleDestruction()
         {
             int piecesCount = rnd.Next(2, 5);
             
@@ -25,6 +25,8 @@ namespace Enemies.Logic
                 var pieceInstance = UnityEngine.Object.Instantiate(_asteroidPiecePrefab, _parentTransform.position, Quaternion.identity);
                 pieceInstance.GetComponent<Rigidbody2D>().AddForce(new Vector2(rnd.Next(-10,10),rnd.Next(-10,10)).normalized* rnd.Next(1,4),ForceMode2D.Impulse);
             }
+            
+            GameObject.Destroy(_parentTransform.gameObject);
         }
     }
 }

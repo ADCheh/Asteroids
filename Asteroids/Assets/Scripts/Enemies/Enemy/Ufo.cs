@@ -1,4 +1,5 @@
 ﻿using Enemies.Infrastructure;
+using Enemies.Logic;
 using Enemies.Movement;
 using UnityEngine;
 
@@ -9,6 +10,7 @@ namespace Enemies.Enemy
         public float MoveSpeed;
         public Transform Player { get; set; }
         public IEnemyMovement MovementLogic { get; set; }
+        public IDestructionLogic DestructionLogic { get; set; }
 
         private void Start()
         {
@@ -18,16 +20,6 @@ namespace Enemies.Enemy
         private void Update()
         {
             MovementLogic.Move();
-        }
-
-        private void OnTriggerEnter2D(Collider2D col)
-        {
-            if (col.CompareTag("Bullet"))
-            {
-                Destroy(col.gameObject);
-                Destroy(gameObject);
-            }
-                
         }
     }
 }

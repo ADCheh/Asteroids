@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Enemies.Logic;
+using UnityEngine;
 
 namespace Enemies.Infrastructure
 {
@@ -6,5 +7,6 @@ namespace Enemies.Infrastructure
     {
         Transform Player { get; set; }
         IEnemyMovement MovementLogic { get; set; }
+        IDestructionLogic DestructionLogic { get; set; }
     }
 }

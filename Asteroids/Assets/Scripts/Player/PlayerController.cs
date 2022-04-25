@@ -7,7 +7,11 @@ namespace Player
         public float speed;
         public float drag;
         public float rotationSpeed;
+        
         public GameObject bulletPrefab;
+        public GameObject laserPrefab;
+        public float bulletSpeed;
+        public float laserSpeed;
 
         private Rigidbody2D _rigidbody;
         private PlayerMovement _movement;
@@ -26,7 +30,12 @@ namespace Player
 
             if (Input.GetMouseButtonDown(0))
             {
-                _attack.ShootBullet();
+                _attack.ShootSomething(bulletPrefab,bulletSpeed);
+            }
+
+            if (Input.GetMouseButtonDown(1))
+            {
+                _attack.ShootSomething(laserPrefab,laserSpeed);
             }
         }
     }

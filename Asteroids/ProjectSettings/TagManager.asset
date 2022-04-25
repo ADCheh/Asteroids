@@ -5,7 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Spawner
-  - Bullet
+  - Enemy
+  - Ammo
   layers:
   - Default
   - TransparentFX
