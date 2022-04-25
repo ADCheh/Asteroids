@@ -4,10 +4,7 @@ namespace Player
 {
     public interface IPlayerChargeableAttack : IPlayerAttack
     {
-        bool NotFullAmmo();
-
-        bool IsReloading();
-
+        bool NeedToReload();
         int CurrentAmmoCount();
         IEnumerator Reload();
     }

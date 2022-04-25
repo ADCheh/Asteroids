@@ -12,6 +12,7 @@ namespace Hud
         public Text CoordinatesTextField;
         public Text RotationTextField;
         public Text SpeedTextField;
+        public Text WeaponCurrentChargesField;
 
         private PlayerPositionInfo _playerPositionInfo;
         private PlayerWeaponsInfo _playerWeaponsInfo;
@@ -29,6 +30,7 @@ namespace Hud
             CoordinatesTextField.text = _playerPositionInfo.GetPlayerCoordinatesString();
             RotationTextField.text = _playerPositionInfo.GetPlayerRotationAngleString();
             SpeedTextField.text = _playerPositionInfo.GetPlayerSpeedMagnitudeString();
+            WeaponCurrentChargesField.text = _playerWeaponsInfo.GetCurrentWeaponChargesString();
         }
     }
 }

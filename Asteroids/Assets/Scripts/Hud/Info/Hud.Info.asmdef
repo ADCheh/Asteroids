@@ -1,8 +1,8 @@
 {
-    "name": "Hud",
+    "name": "Hud.Info",
     "rootNamespace": "",
     "references": [
-        "GUID:8dcc1907eb969a74bb7a2cc461018b09"
+        "GUID:9267a2058fa778c488a08258570ad4db"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

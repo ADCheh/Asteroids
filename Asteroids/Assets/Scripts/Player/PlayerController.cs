@@ -24,7 +24,7 @@ namespace Player
         private IPlayerAttack _bullet;
         public IPlayerChargeableAttack _laser;
 
-        void Start()
+        void Awake()
         {
             _rigidbody = GetComponent<Rigidbody2D>();
             _movement = new PlayerMovement(transform,_rigidbody);
@@ -45,7 +45,7 @@ namespace Player
                 _bullet.Fire();
             }
             
-            if (_laser.NotFullAmmo() && !_laser.IsReloading())
+            if (_laser.NeedToReload())
                 StartCoroutine(_laser.Reload());
             
             if (Input.GetMouseButtonDown(1))

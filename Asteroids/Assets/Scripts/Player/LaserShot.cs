@@ -47,14 +47,19 @@ namespace Player
             return currentShotsCount;
         }
 
-        public bool IsReloading()
+        public bool NeedToReload()
         {
-            return _isReloading;
+            return NotFullAmmo() && !IsReloading();
         }
 
-        public bool NotFullAmmo()
+        private bool NotFullAmmo()
         {
             return currentShotsCount < _maxShotsCount;
+        }
+
+        private bool IsReloading()
+        {
+            return _isReloading;
         }
 
         private bool HaveAmmo()

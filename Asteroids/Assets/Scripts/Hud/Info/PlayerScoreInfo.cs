@@ -1,6 +1,10 @@
 ﻿namespace Hud.Info
 {
-    internal class PlayerScoreInfo
+    public class PlayerScoreInfo
     {
+        public PlayerScoreInfo()
+        {
+            
+        }
     }
 }
