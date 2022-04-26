@@ -5,7 +5,7 @@ namespace Player
 {
     public class LaserShot : IPlayerChargeableAttack
     {
-        public int currentShotsCount=0;
+        private int currentShotsCount=0;
         
         private Transform _playerTransform;
         private GameObject _laserPrefab;
@@ -13,7 +13,9 @@ namespace Player
         private int _maxShotsCount;
         private float _rechargeTime;
 
+        private float _reloadTime;
         private bool _isReloading;
+        private float _chargePercent;
         
         public LaserShot(Transform playerTransform,GameObject laserPrefab,float laserSpeed ,int maxShotsCount, float rechargeTime)
         {
@@ -40,6 +42,7 @@ namespace Player
             yield return new WaitForSeconds(_rechargeTime);
             currentShotsCount++;
             _isReloading = false;
+            _reloadTime = 0;
         }
 
         public int CurrentAmmoCount()
@@ -50,6 +53,15 @@ namespace Player
         public bool NeedToReload()
         {
             return NotFullAmmo() && !IsReloading();
+        }
+
+        public float ReloadStatus()
+        {
+            if(_isReloading)
+                _reloadTime += Time.deltaTime;
+            
+            _chargePercent = _reloadTime / _rechargeTime;
+            return  _chargePercent;
         }
 
         private bool NotFullAmmo()

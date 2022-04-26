@@ -7,5 +7,7 @@ namespace Player
         bool NeedToReload();
         int CurrentAmmoCount();
         IEnumerator Reload();
+
+        float ReloadStatus();
     }
 }

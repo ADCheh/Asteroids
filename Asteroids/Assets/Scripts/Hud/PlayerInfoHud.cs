@@ -1,11 +1,10 @@
-﻿using System;
-using Hud.Info;
+﻿using Hud.Info;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace Hud
 {
-    public class GameHud : MonoBehaviour
+    public class PlayerInfoHud : MonoBehaviour
     {
         public GameObject Player;
 
@@ -14,15 +13,15 @@ namespace Hud
         public Text SpeedTextField;
         public Text WeaponCurrentChargesField;
 
+        public Image WeaponRechargeBar;
+
         private PlayerPositionInfo _playerPositionInfo;
         private PlayerWeaponsInfo _playerWeaponsInfo;
-        private PlayerScoreInfo _playerScoreInfo;
 
         private void Start()
         {
             _playerPositionInfo = new PlayerPositionInfo(Player);
             _playerWeaponsInfo = new PlayerWeaponsInfo(Player);
-            _playerScoreInfo = new PlayerScoreInfo();
         }
 
         private void Update()
@@ -31,6 +30,7 @@ namespace Hud
             RotationTextField.text = _playerPositionInfo.GetPlayerRotationAngleString();
             SpeedTextField.text = _playerPositionInfo.GetPlayerSpeedMagnitudeString();
             WeaponCurrentChargesField.text = _playerWeaponsInfo.GetCurrentWeaponChargesString();
+            WeaponRechargeBar.fillAmount = _playerWeaponsInfo.GetReloadStatus();
         }
     }
 }

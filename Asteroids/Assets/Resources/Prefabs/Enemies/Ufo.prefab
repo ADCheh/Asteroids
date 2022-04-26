@@ -100,6 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MoveSpeed: 0.1
+  ScoreForDestruction: 300
 --- !u!50 &6013254833188031225
 Rigidbody2D:
   serializedVersion: 4

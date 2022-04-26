@@ -101,6 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MoveSpeed: 0.5
   asteroidPiecePrefab: {fileID: 1722209314443656159, guid: c076c21b24af6614fa5b38b27f13c170, type: 3}
+  ScorForDestruction: 150
 --- !u!50 &5195959135449606263
 Rigidbody2D:
   serializedVersion: 4

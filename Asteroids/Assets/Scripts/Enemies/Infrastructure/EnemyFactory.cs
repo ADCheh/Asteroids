@@ -59,13 +59,9 @@ namespace Enemies.Infrastructure
 
         private GameObject InstantiateEnemy(EnemyType enemyType)
         {
-            //
             var spawnerLocation = _spawnerList[rnd.Next(_spawnerList.Count)].transform.position;
-            var vectorTest = new Vector3(spawnerLocation.x, spawnerLocation.y,
-                spawnerLocation.z);
-            //
             return Object.Instantiate(
-                _enemyPrefabs[enemyType],vectorTest,
+                _enemyPrefabs[enemyType],spawnerLocation,
                 Quaternion.identity);
         }
 
