@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99383de4e2a14d20974c4f9884b303c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSpeed: 0.5
+  MoveSpeed: 0.7
   asteroidPiecePrefab: {fileID: 1722209314443656159, guid: c076c21b24af6614fa5b38b27f13c170, type: 3}
   ScorForDestruction: 150
 --- !u!50 &5195959135449606263

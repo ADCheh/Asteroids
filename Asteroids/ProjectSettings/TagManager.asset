@@ -42,6 +42,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Ammo
+    uniqueID: 4188232979
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

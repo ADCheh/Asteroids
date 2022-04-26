@@ -12,11 +12,8 @@ namespace Enemies.Movement
         public float MoveSpeed { get; set; }
 
         private Vector3 _playerPosition;
-        
-        //
         private System.Random rnd = new Random();
-        //
-        
+
         public AsteroidMovement(Transform playerTransform, Transform transform, float movementSpeed)
         {
             SelfTransform = transform;
@@ -26,8 +23,8 @@ namespace Enemies.Movement
 
         public void Move()
         {
-            float forceX = PlayerTransform.position.x - SelfTransform.position.x + GetRandomBoarders(5);//
-            float forceY = PlayerTransform.position.y - SelfTransform.position.y + GetRandomBoarders(5);//
+            float forceX = PlayerTransform.position.x - SelfTransform.position.x + GetRandomBoarders(10);
+            float forceY = PlayerTransform.position.y - SelfTransform.position.y + GetRandomBoarders(10);
             
             SelfTransform.GetComponent<Rigidbody2D>().
                 AddForce(new Vector2(forceX,forceY).normalized * MoveSpeed,ForceMode2D.Impulse);

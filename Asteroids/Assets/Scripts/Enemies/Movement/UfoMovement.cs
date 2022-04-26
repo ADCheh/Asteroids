@@ -18,7 +18,8 @@ namespace Enemies.Movement
 
         public void Move()
         {
-            SelfTransform.position = Vector3.Lerp(SelfTransform.position, PlayerTransform.position, Time.deltaTime * MoveSpeed);
+            SelfTransform.position += (PlayerTransform.position - SelfTransform.position).normalized * Time.deltaTime *
+                                      MoveSpeed;
         }
     }
 }
