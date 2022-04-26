@@ -2,7 +2,8 @@
     "name": "Game",
     "rootNamespace": "",
     "references": [
-        "GUID:769d67a2afe28d24587b3af33222a75e"
+        "GUID:769d67a2afe28d24587b3af33222a75e",
+        "GUID:9267a2058fa778c488a08258570ad4db"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

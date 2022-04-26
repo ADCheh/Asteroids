@@ -1,4 +1,6 @@
+using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Player
 {
@@ -24,7 +26,9 @@ namespace Player
         private IPlayerAttack _bullet;
         public IPlayerChargeableAttack _laser;
 
-        void Awake()
+        public UnityEvent PlayerIsDead = new UnityEvent();
+
+        private void Awake()
         {
             _rigidbody = GetComponent<Rigidbody2D>();
             _movement = new PlayerMovement(transform,_rigidbody);
@@ -32,10 +36,10 @@ namespace Player
 
             _bullet = new BulletShot(transform, bulletPrefab, bulletSpeed);
             _laser = new LaserShot(transform, laserPrefab, laserSpeed, laserShotsMaxCount, laserShotsChargeTime);
-            
+
             StartCoroutine(_laser.Reload());
         }
-        void Update()
+        private void Update()
         {
             _movement.MoveForward(speed,drag);
             _movement.Rotate(rotationSpeed);
@@ -51,6 +55,14 @@ namespace Player
             if (Input.GetMouseButtonDown(1))
             {
                 _laser.Fire();
+            }
+        }
+
+        private void OnTriggerEnter2D(Collider2D col)
+        {
+            if (col.CompareTag("Enemy"))
+            {
+                PlayerIsDead?.Invoke();
             }
         }
     }
