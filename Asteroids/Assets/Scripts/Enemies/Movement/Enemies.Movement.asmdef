@@ -1,0 +1,16 @@
+{
+    "name": "Enemy.Movement",
+    "rootNamespace": "",
+    "references": [
+        "GUID:6aa64b49ca832ed4f99a175698e82032"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
