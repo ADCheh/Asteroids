@@ -13,7 +13,7 @@ namespace Player
         public GameObject bulletPrefab;
         public GameObject laserPrefab;
         public float bulletSpeed;
-        public float laserSpeed;
+        public float laserShotDuration;
         public int laserShotsMaxCount;
         public float laserShotsChargeTime;
 
@@ -21,7 +21,6 @@ namespace Player
 
         private Rigidbody2D _rigidbody;
         private PlayerMovement _movement;
-        private PlayerAttack _attack;
 
         private IPlayerAttack _bullet;
         public IPlayerChargeableAttack _laser;
@@ -32,15 +31,17 @@ namespace Player
         {
             _rigidbody = GetComponent<Rigidbody2D>();
             _movement = new PlayerMovement(transform,_rigidbody);
-            _attack = new PlayerAttack(transform, laserShotsMaxCount,laserShotsChargeTime);
 
             _bullet = new BulletShot(transform, bulletPrefab, bulletSpeed);
-            _laser = new LaserShot(transform, laserPrefab, laserSpeed, laserShotsMaxCount, laserShotsChargeTime);
+            _laser = new LaserShot(transform, laserPrefab, laserShotDuration, laserShotsMaxCount, laserShotsChargeTime);
 
             StartCoroutine(_laser.Reload());
         }
         private void Update()
         {
+            if(Time.timeScale == 0)
+                return;
+            
             _movement.MoveForward(speed,drag);
             _movement.Rotate(rotationSpeed);
 
@@ -54,7 +55,7 @@ namespace Player
             
             if (Input.GetMouseButtonDown(1))
             {
-                _laser.Fire();
+                StartCoroutine(_laser.Fire());
             }
         }
 

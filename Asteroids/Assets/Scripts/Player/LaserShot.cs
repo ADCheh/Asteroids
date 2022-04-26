@@ -6,35 +6,39 @@ namespace Player
     public class LaserShot : IPlayerChargeableAttack
     {
         private int currentShotsCount=0;
-        
-        private Transform _playerTransform;
+
         private GameObject _laserPrefab;
-        private float _laserSpeed;
+        
+        private float _laserShotDuration;
+        
         private int _maxShotsCount;
         private float _rechargeTime;
 
         private float _reloadTime;
         private bool _isReloading;
         private float _chargePercent;
-        
-        public LaserShot(Transform playerTransform,GameObject laserPrefab,float laserSpeed ,int maxShotsCount, float rechargeTime)
+
+        public LaserShot(Transform playerTransform,GameObject laserPrefab,float laserShotDuration ,int maxShotsCount, float rechargeTime)
         {
-            _playerTransform = playerTransform;
             _laserPrefab = laserPrefab;
-            _laserSpeed = laserSpeed;
+            _laserShotDuration = laserShotDuration;
             _maxShotsCount = maxShotsCount;
             _rechargeTime = rechargeTime;
         }
-        public void Fire()
+        public IEnumerator Fire()
         {
             if (!HaveAmmo())
-                return;
+                yield break;
 
             currentShotsCount--;
             
-            var ammoInstance = UnityEngine.Object.Instantiate(_laserPrefab, _playerTransform.position,_playerTransform.rotation);
-            ammoInstance.GetComponent<Rigidbody2D>().AddForce(new Vector2(_playerTransform.up.x,_playerTransform.up.y)*_laserSpeed,ForceMode2D.Impulse);
+            _laserPrefab.SetActive(true);
+
+            yield return new WaitForSeconds(_laserShotDuration);
+            _laserPrefab.SetActive(false);
         }
+        
+        
 
         public IEnumerator Reload()
         {

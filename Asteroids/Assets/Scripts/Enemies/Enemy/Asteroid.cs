@@ -25,7 +25,7 @@ namespace Enemies.Enemy
 
         private void OnTriggerEnter2D(Collider2D col)
         {
-            if (col.CompareTag("Ammo"))
+            if (col.CompareTag("Ammo") || col.CompareTag("Laser"))
             {
                 DestructionLogic.HandleDestruction();
             }

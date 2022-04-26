@@ -2,12 +2,12 @@
 
 namespace Player
 {
-    public interface IPlayerChargeableAttack : IPlayerAttack
+    public interface IPlayerChargeableAttack
     {
+        IEnumerator Fire();
         bool NeedToReload();
         int CurrentAmmoCount();
         IEnumerator Reload();
-
         float ReloadStatus();
     }
 }
