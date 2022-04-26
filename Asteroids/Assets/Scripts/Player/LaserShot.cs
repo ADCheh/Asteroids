@@ -7,16 +7,17 @@ namespace Player
     {
         private int currentShotsCount=0;
 
-        private GameObject _laserPrefab;
+        private readonly GameObject _laserPrefab;
         
-        private float _laserShotDuration;
+        private readonly float _laserShotDuration;
         
-        private int _maxShotsCount;
-        private float _rechargeTime;
+        private readonly int _maxShotsCount;
+        private readonly float _rechargeTime;
 
         private float _reloadTime;
         private bool _isReloading;
         private float _chargePercent;
+        private readonly Transform _playerTransform;
 
         public LaserShot(Transform playerTransform,GameObject laserPrefab,float laserShotDuration ,int maxShotsCount, float rechargeTime)
         {
@@ -24,21 +25,25 @@ namespace Player
             _laserShotDuration = laserShotDuration;
             _maxShotsCount = maxShotsCount;
             _rechargeTime = rechargeTime;
+            _playerTransform = playerTransform;
         }
         public IEnumerator Fire()
         {
+            AdjustPosition();
+
             if (!HaveAmmo())
                 yield break;
 
             currentShotsCount--;
-            
+
+            AdjustPosition();
+
             _laserPrefab.SetActive(true);
 
             yield return new WaitForSeconds(_laserShotDuration);
             _laserPrefab.SetActive(false);
         }
-        
-        
+
 
         public IEnumerator Reload()
         {
@@ -66,6 +71,12 @@ namespace Player
             
             _chargePercent = _reloadTime / _rechargeTime;
             return  _chargePercent;
+        }
+
+        private void AdjustPosition()
+        {
+            _laserPrefab.transform.position = _playerTransform.position;
+            _laserPrefab.transform.rotation = _playerTransform.rotation;
         }
 
         private bool NotFullAmmo()

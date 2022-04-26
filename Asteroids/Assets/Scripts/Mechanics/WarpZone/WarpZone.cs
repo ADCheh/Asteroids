@@ -7,17 +7,18 @@ namespace Mechanics.WarpZone
     {
         public Transform targetZone;
         public WarpType warpZoneType;
+        public float warpDelay;
         
         private WarpZoneLogic _warpZoneLogic;
 
         private void Start()
         {
-            _warpZoneLogic = new WarpZoneLogic(warpZoneType,targetZone);
+            _warpZoneLogic = new WarpZoneLogic(warpZoneType,targetZone,warpDelay);
         }
 
-        private void OnTriggerEnter2D(Collider2D col)
+        private void OnTriggerStay2D(Collider2D other)
         {
-            _warpZoneLogic.WarpTo(col);
+            StartCoroutine(_warpZoneLogic.WarpTo(other));
         }
 
         private void OnTriggerExit2D(Collider2D other)

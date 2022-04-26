@@ -1,5 +1,6 @@
 using Player;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Game
 {
@@ -7,11 +8,12 @@ namespace Game
     {
         public PlayerController PlayerController;
         public GameObject EndgameHud;
+        public Text EndgameText;
         
         private EndgameLogic _gameEndingController;
         private void Start()
         {
-            _gameEndingController = new EndgameLogic(PlayerController,EndgameHud);
+            _gameEndingController = new EndgameLogic(PlayerController,EndgameHud, EndgameText);
         }
 
         public void RestartButtonHandler()

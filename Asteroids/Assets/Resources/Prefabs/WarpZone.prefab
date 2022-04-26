@@ -72,3 +72,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetZone: {fileID: 0}
+  warpZoneType: 0
+  warpDelay: 1

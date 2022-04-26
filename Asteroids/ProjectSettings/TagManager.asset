@@ -43,7 +43,7 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Ammo
+  - name: Background
     uniqueID: 4188232979
     locked: 0
   - name: Default

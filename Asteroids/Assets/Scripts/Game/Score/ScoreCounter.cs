@@ -18,5 +18,10 @@ namespace Game.Score
             _currentScore += score;
             _scoreText.text = _currentScore.ToString();
         }
+
+        public float GetScore()
+        {
+            return _currentScore;
+        }
     }
 }
