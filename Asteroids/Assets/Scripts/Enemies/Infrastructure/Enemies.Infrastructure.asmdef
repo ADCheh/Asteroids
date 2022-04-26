@@ -1,10 +1,7 @@
 {
-    "name": "Hud.Info",
+    "name": "Enemies.Infrastructure",
     "rootNamespace": "",
-    "references": [
-        "GUID:9267a2058fa778c488a08258570ad4db",
-        "GUID:21c1ed32687f70441b1693fa3bde488f"
-    ],
+    "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,

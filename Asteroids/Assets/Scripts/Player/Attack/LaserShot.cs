@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-namespace Player
+namespace Player.Attack
 {
     public class LaserShot : IPlayerChargeableAttack
     {

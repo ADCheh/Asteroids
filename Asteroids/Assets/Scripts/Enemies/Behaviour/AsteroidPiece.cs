@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Enemies.Enemy
+namespace Enemies.Behaviour
 {
     public class AsteroidPiece : MonoBehaviour
     {

@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 
-namespace Player
+namespace Player.Attack
 {
     public interface IPlayerChargeableAttack
     {

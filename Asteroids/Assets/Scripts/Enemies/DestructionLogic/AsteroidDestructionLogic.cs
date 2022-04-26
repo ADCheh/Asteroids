@@ -1,8 +1,9 @@
-﻿using Game;
+﻿using Enemies.Infrastructure;
+using Game;
 using UnityEngine;
 using Random = System.Random;
 
-namespace Enemies.Logic
+namespace Enemies.DestructionLogic
 {
     public class AsteroidDestructionLogic : IDestructionLogic
     {

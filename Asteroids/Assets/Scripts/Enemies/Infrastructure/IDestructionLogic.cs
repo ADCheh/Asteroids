@@ -1,4 +1,4 @@
-﻿namespace Enemies.Logic
+﻿namespace Enemies.Infrastructure
 {
     public interface IDestructionLogic
     {

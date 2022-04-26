@@ -1,8 +1,8 @@
 {
-    "name": "Enemies",
+    "name": "Enemy.Movement",
     "rootNamespace": "",
     "references": [
-        "GUID:86ee23285d2f05f49bd3fa62ea6a6577"
+        "GUID:6aa64b49ca832ed4f99a175698e82032"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

@@ -1,4 +1,5 @@
 ﻿using Player;
+using Player.Attack;
 using UnityEngine;
 
 namespace Hud.Info

@@ -1,5 +1,4 @@
-﻿using Enemies.Logic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Enemies.Infrastructure
 {

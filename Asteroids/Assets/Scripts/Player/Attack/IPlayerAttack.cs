@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-
-namespace Player
+﻿namespace Player.Attack
 {
     public interface IPlayerAttack
     {

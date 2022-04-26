@@ -1,28 +1,25 @@
-﻿using System;
+﻿using Enemies.DestructionLogic;
 using Enemies.Infrastructure;
-using Enemies.Logic;
 using Enemies.Movement;
 using UnityEngine;
 
-namespace Enemies.Enemy
+namespace Enemies.Behaviour
 {
-    public class Ufo : MonoBehaviour, IEnemy
+    public class Asteroid : MonoBehaviour, IEnemy
     {
         public float MoveSpeed;
-        public Transform Player { get; set; }
+
+        public GameObject asteroidPiecePrefab;
+        public Transform Player { get; set;  }
         public IEnemyMovement MovementLogic { get; set; }
         public IDestructionLogic DestructionLogic { get; set; }
 
-        public int ScoreForDestruction;
+        public int ScorForDestruction;
 
         private void Start()
         {
-            DestructionLogic = new UfoDestructionLogic(transform, ScoreForDestruction);
-            MovementLogic = new UfoMovement(Player,transform, MoveSpeed);
-        }
-
-        private void Update()
-        {
+            DestructionLogic = new AsteroidDestructionLogic(transform, asteroidPiecePrefab,ScorForDestruction);
+            MovementLogic = new AsteroidMovement(Player, transform,MoveSpeed);
             MovementLogic.Move();
         }
 

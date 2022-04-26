@@ -1,9 +1,9 @@
 {
-    "name": "Hud.Info",
+    "name": "Enemy.DestructionLogic",
     "rootNamespace": "",
     "references": [
-        "GUID:9267a2058fa778c488a08258570ad4db",
-        "GUID:21c1ed32687f70441b1693fa3bde488f"
+        "GUID:6aa64b49ca832ed4f99a175698e82032",
+        "GUID:86ee23285d2f05f49bd3fa62ea6a6577"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

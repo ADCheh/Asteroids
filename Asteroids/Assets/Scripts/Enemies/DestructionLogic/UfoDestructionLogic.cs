@@ -1,7 +1,8 @@
+using Enemies.Infrastructure;
 using Game;
 using UnityEngine;
 
-namespace Enemies.Logic
+namespace Enemies.DestructionLogic
 {
     public class UfoDestructionLogic : IDestructionLogic
     {

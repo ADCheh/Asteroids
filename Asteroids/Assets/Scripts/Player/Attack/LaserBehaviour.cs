@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Player
+namespace Player.Attack
 {
     public class LaserBehaviour : MonoBehaviour
     {

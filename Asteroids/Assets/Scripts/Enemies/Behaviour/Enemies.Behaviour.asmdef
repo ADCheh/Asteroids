@@ -1,9 +1,10 @@
 {
-    "name": "Hud.Info",
+    "name": "Enemy.Behaviour",
     "rootNamespace": "",
     "references": [
-        "GUID:9267a2058fa778c488a08258570ad4db",
-        "GUID:21c1ed32687f70441b1693fa3bde488f"
+        "GUID:31f09fa1387541b4ebb3267a7b3fb53a",
+        "GUID:c63f3cd77291b53448e07f6b00fd5b72",
+        "GUID:6aa64b49ca832ed4f99a175698e82032"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
