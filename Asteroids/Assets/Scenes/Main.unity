@@ -2794,10 +2794,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 5397028689084950899, guid: 172f609a00174784d8d6a2401309dd7f, type: 3}
-      propertyPath: m_SortingOrder
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5397028689084950903, guid: 172f609a00174784d8d6a2401309dd7f, type: 3}
       propertyPath: laserPrefab
       value: 
